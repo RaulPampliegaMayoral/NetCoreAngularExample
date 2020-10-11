@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "k47+/39lyGOh1otcyyLap2M0uUs9p/NtqKuF+3/L2CODhpeCFSoXoMDDf7V8E3vOEARmq+EVpW4d+wG2ZZRs/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Raul\\source\\repos\\NetCoreAngularExample\\NetCoreShoppingServer\\NetCoreShoppingServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Raul\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

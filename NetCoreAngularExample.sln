@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreShoppingServer", "NetCoreShoppingServer\NetCoreShoppingServer.csproj", "{DC41FD13-60B5-4A4E-B157-97C6A4F55CC8}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ShoppingAngular", "ShoppingAngular\", "{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51936"
+		Debug.AspNetCompiler.PhysicalPath = "ShoppingAngular\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51936\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51936"
+		Release.AspNetCompiler.PhysicalPath = "ShoppingAngular\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51936\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51936"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC41FD13-60B5-4A4E-B157-97C6A4F55CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC41FD13-60B5-4A4E-B157-97C6A4F55CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC41FD13-60B5-4A4E-B157-97C6A4F55CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC41FD13-60B5-4A4E-B157-97C6A4F55CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2CA9124-4305-4924-B573-666D37ED1832}
+	EndGlobalSection
+EndGlobal

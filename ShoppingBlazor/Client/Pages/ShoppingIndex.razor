@@ -1,30 +1,24 @@
 ﻿@page "/shopping"
-@inject HttpClient Http
 @using ShoppingBlazor.Client.Components
+@using Microsoft.AspNetCore.SignalR.Client
+@inject HttpClient Http
+@implements IAsyncDisposable
+
 
 <div class="p-4">
     <div class="container">
-        <h1>Hi!</h1>
+        <h1>Add Shopping list and items for each one</h1>
     </div>
 </div>
 <div class="d-flex flex-row">
-    <EditForm Model="@model" OnValidSubmit="@HandleCreateShoppingSubmit">
-        <p>
-            <label>
-                Identifier:
-                <InputNumber @bind-Value="@model.Id" />
-            </label>
-        </p>
-        <p>
-            <label>
-                Description (optional):
-                <InputText @bind-Value="@model.Name" />
-            </label>
-        </p>
-        <button type="submit">Añadir</button>
-    </EditForm>
+    <div class="col">
+        <ShoppingForm Value="@model" />
+    </div>
+    <div class="col">
+        
+    </div>
 </div>
-<div class="d-flex flex-row">
+<div class="d-flex flex-wrap">
     @foreach (var shopping in Data)
     {
         <div class="p-2">
@@ -38,25 +32,33 @@
     private ShoppingShared.Models.Shopping model = new() { Id = -1, Name = null };
     private IEnumerable<ShoppingShared.Models.Shopping> Data = Array.Empty<ShoppingShared.Models.Shopping>();
 
+    private HubConnection hubConnection;
+
     protected override async Task OnInitializedAsync()
     {
-        Data = await Http.GetFromJsonAsync<IEnumerable<ShoppingShared.Models.Shopping>>("https://localhost:44311/shopping");
+        Data = await Http.GetFromJsonAsync<IEnumerable<ShoppingShared.Models.Shopping>>("https://localhost:5001/shopping");
+
+        await DisposeAsync();
+
+        // SignalR connection
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:5001/ws")
+            .Build();
+
+        hubConnection.On<ShoppingShared.Models.Shopping>("ReceiveMessage", (data) =>
+        {
+            Data.Append(data);
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
     }
 
-    private async Task HandleAddItemShoppingSubmit()
+    public async ValueTask DisposeAsync()
     {
-        var parameters = new Dictionary<string, string>();
-        parameters.Add("shoppingId", $"{model.Id}");
-        parameters.Add("item", model.Name);
-        var response = await Http.PostAsync($"https://localhost:44311/shopping", new FormUrlEncodedContent(parameters));
-        return;
-    }
-
-    private async Task HandleCreateShoppingSubmit()
-    {
-        var parameters = new Dictionary<string, string>();
-        parameters.Add("name", model.Name);
-        var response = await Http.PutAsync($"https://localhost:44311/shopping/{model.Id}", new FormUrlEncodedContent(parameters));
-        return;
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
     }
 }

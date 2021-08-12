@@ -1,0 +1,41 @@
+﻿@inject HttpClient Http
+
+<EditForm Model="@Value" OnValidSubmit="@HandleCreateShoppingSubmit">
+    <div class="form-group">
+        <label for="inputIdentifier">Identifier</label>
+        <InputNumber class="form-control" id="inputIdentifier" aria-describedby="identifierHelp" placeholder="Identifier" @bind-Value="@Value.Id" />
+    </div>
+    <div class="form-group">
+        <label for="inputName">Name</label>
+        <InputText class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Name" @bind-Value="@Value.Name" />
+    </div>
+    <button type="submit">Add Shopping</button>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public ShoppingShared.Models.Shopping Value { get; set; }
+
+    private async Task HandleCreateShoppingSubmit()
+    {
+        var parameters = new Dictionary<string, string>();
+        parameters.Add("name", Value.Name);
+        try
+        {
+            using (var response = await Http.PutAsync($"https://localhost:5001/shopping/{Value.Id}", new FormUrlEncodedContent(parameters)))
+            {
+                if (response.StatusCode == System.Net.HttpStatusCode.OK) {
+                    if (response.Content == null) {
+                        //fail
+                    }
+                }
+            }
+        }
+        catch (TimeoutException e) {
+        }
+        catch (Exception e) {
+        }
+    }
+
+}

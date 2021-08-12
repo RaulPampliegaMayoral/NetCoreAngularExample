@@ -1,0 +1,27 @@
+﻿@inject HttpClient Http
+
+<EditForm EditContext="@editContext" OnValidSubmit="@HandleAddItemShoppingSubmit">
+    <div class="form-group">
+        <label for="inputName">Item</label>
+        <input type="text" class="form-control" id="inputNme" aria-describedby="nameHelp" placeholder="Name">
+    </div>
+    <button type="submit">Add Item</button>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public ShoppingShared.Models.Shopping Value { get; set; }
+
+    private EditContext editContext;
+
+    private void HandleAddItemShoppingSubmit()
+    {
+        //var parameters = new Dictionary<string, string>();
+        //parameters.Add("shoppingId", $"{model.Id}");
+        //parameters.Add("item", model.Name);
+        //var response = await Http.PostAsync($"https://localhost:5001/shopping", new FormUrlEncodedContent(parameters));
+        return;
+    }
+
+}

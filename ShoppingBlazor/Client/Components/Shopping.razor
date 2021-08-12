@@ -1,14 +1,19 @@
-﻿<h3>Shopping</h3>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">@Value.Name</h5>
+﻿<div class="mb-auto p-2">
+    <h3>Shopping</h3>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Value.Name</h5>
+        </div>
+        @if (Value != null && Value.Items != null)
+        {
+            @foreach (var item in Value.Items)
+            {
+                <ul>
+                    <li class="list-group-item">@item.Name</li>
+                </ul>
+            }
+        }
     </div>
-    @foreach (var item in Value.Items)
-    {
-        <ul>
-            <li class="list-group-item">@item.Name</li>
-        </ul>
-    }
 </div>
 @code {
 

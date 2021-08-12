@@ -28,7 +28,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ShoppingAngular", "Shopping
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingBlazor.Client", "ShoppingBlazor\Client\ShoppingBlazor.Client.csproj", "{6BA10594-80D8-4EDF-ABDE-A22B696DB995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingShared", "ShoppingShared\ShoppingShared.csproj", "{CCF0491F-B103-463A-B247-809EBF8C1E20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingShared", "ShoppingShared\ShoppingShared.csproj", "{CCF0491F-B103-463A-B247-809EBF8C1E20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

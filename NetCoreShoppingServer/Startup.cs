@@ -41,6 +41,11 @@ namespace NetCoreShoppingServer
                               .AllowAnyMethod()
                               .AllowCredentials());
 
+            app.UseCors(builder => builder.WithOrigins("https://localhost:5001")
+                              .AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowCredentials());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

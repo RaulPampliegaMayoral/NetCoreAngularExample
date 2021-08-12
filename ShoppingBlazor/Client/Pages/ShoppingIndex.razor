@@ -1,0 +1,62 @@
+﻿@page "/shopping"
+@inject HttpClient Http
+@using ShoppingBlazor.Client.Components
+
+<div class="p-4">
+    <div class="container">
+        <h1>Hi!</h1>
+    </div>
+</div>
+<div class="d-flex flex-row">
+    <EditForm Model="@model" OnValidSubmit="@HandleCreateShoppingSubmit">
+        <p>
+            <label>
+                Identifier:
+                <InputNumber @bind-Value="@model.Id" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Description (optional):
+                <InputText @bind-Value="@model.Name" />
+            </label>
+        </p>
+        <button type="submit">Añadir</button>
+    </EditForm>
+</div>
+<div class="d-flex flex-row">
+    @foreach (var shopping in Data)
+    {
+        <div class="p-2">
+            <Shopping value="@shopping" />
+        </div>
+    }
+</div>
+
+@code {
+
+    private ShoppingShared.Models.Shopping model = new() { Id = -1, Name = null };
+    private IEnumerable<ShoppingShared.Models.Shopping> Data = Array.Empty<ShoppingShared.Models.Shopping>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await Http.GetFromJsonAsync<IEnumerable<ShoppingShared.Models.Shopping>>("https://localhost:44311/shopping");
+    }
+
+    private async Task HandleAddItemShoppingSubmit()
+    {
+        var parameters = new Dictionary<string, string>();
+        parameters.Add("shoppingId", $"{model.Id}");
+        parameters.Add("item", model.Name);
+        var response = await Http.PostAsync($"https://localhost:44311/shopping", new FormUrlEncodedContent(parameters));
+        return;
+    }
+
+    private async Task HandleCreateShoppingSubmit()
+    {
+        var parameters = new Dictionary<string, string>();
+        parameters.Add("name", model.Name);
+        var response = await Http.PutAsync($"https://localhost:44311/shopping/{model.Id}", new FormUrlEncodedContent(parameters));
+        return;
+    }
+}

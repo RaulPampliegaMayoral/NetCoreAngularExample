@@ -23,7 +23,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ShoppingAngular", "Shopping
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51936"
+		SlnRelativePath = "ShoppingAngular\"
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingBlazor.Client", "ShoppingBlazor\Client\ShoppingBlazor.Client.csproj", "{6BA10594-80D8-4EDF-ABDE-A22B696DB995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingShared", "ShoppingShared\ShoppingShared.csproj", "{CCF0491F-B103-463A-B247-809EBF8C1E20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,14 @@ Global
 		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D88EC6C-DE0A-410B-82F7-834A3DB0FC18}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6BA10594-80D8-4EDF-ABDE-A22B696DB995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA10594-80D8-4EDF-ABDE-A22B696DB995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA10594-80D8-4EDF-ABDE-A22B696DB995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA10594-80D8-4EDF-ABDE-A22B696DB995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF0491F-B103-463A-B247-809EBF8C1E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF0491F-B103-463A-B247-809EBF8C1E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF0491F-B103-463A-B247-809EBF8C1E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF0491F-B103-463A-B247-809EBF8C1E20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

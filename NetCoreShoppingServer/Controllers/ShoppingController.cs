@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using NetCoreAngularExample.Data;
-using NetCoreAngularExample.Models;
 using NetCoreShoppingServer.Hubs;
+using ShoppingShared.Models;
 
 namespace NetCoreAngularExample.Controllers
 {
@@ -46,7 +46,7 @@ namespace NetCoreAngularExample.Controllers
         }
 
         [HttpPost]
-        public Shopping AddItem(int shoppingId, string item)
+        public Shopping AddItem([FromForm] int shoppingId, [FromForm] string item)
         {
             var shopping = _shopping.AddItem(shoppingId, item);
             return shopping;

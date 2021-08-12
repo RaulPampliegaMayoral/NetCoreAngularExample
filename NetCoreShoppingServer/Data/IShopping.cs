@@ -1,4 +1,4 @@
-﻿using NetCoreAngularExample.Models;
+﻿using ShoppingShared.Models;
 using System.Collections.Generic;
 
 namespace NetCoreAngularExample.Data

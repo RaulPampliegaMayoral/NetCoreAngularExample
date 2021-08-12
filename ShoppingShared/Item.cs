@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetCoreAngularExample.Models
+namespace ShoppingShared.Models
 {
     public class Item
     {

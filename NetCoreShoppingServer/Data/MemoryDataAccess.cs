@@ -1,4 +1,4 @@
-﻿using NetCoreAngularExample.Models;
+﻿using ShoppingShared.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace NetCoreAngularExample.Data
 {
     public class MemoryDataAccess : IShopping
     {
-        private static ConcurrentDictionary<int, Shopping> _shoppings = new ConcurrentDictionary<int, Shopping>();
+        private static ConcurrentDictionary<int, Shopping> _shoppings = new();
 
         public Shopping AddItem(int shopping, string item)
         {
